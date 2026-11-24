@@ -1,0 +1,15 @@
+# Throwaway test: checks that Cosmos records job events. Nothing runs these jobs yet,
+# so the run stays queued until it is cancelled.
+name: cosmos-webhook-test
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  cosmos-job:
+    runs-on: cosmos-linux-2
+    steps:
+      - run: echo "hello from a Cosmos runner"
+  github-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this one is not ours"
